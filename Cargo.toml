@@ -1,8 +1,27 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [package]
 name = "phobia"
 version = "0.1.0"
-edition = "2021"
+authors = ["Christian Jaeger <ch@christianjaeger.ch>"]
+edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0"
+thiserror = "1.0.37"
+log = "0.4.8"
+env_logger = "0.8.4"
+rayon = "1.5.3"
+nix = "^0.24.3"
+libc = "0.2.133"
+bstr_parse = "0.1.0"
+csv = "1.2.1"
+genawaiter = { version = "0.99.1", default-features = false }
+regex = "1.4.6"
+lazy_static = "1.4.0"
+clap = { version = "3.2.23", features = ["derive"] }
+egui = "0.19.0"
+miniquad = "0.3.15"
+egui-miniquad = "0.12.0"
