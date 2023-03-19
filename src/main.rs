@@ -3,8 +3,8 @@ use {egui_miniquad as egui_mq, miniquad as mq};
 struct Stage {
     egui_mq: egui_mq::EguiMq,
     show_egui_demo_windows: bool,
-    egui_demo_windows: egui_demo_lib::DemoWindows,
-    color_test: egui_demo_lib::ColorTest,
+    // egui_demo_windows: egui_demo_lib::DemoWindows,
+    // color_test: egui_demo_lib::ColorTest,
     pixels_per_point: f32,
 }
 
@@ -13,8 +13,8 @@ impl Stage {
         Self {
             egui_mq: egui_mq::EguiMq::new(ctx),
             show_egui_demo_windows: true,
-            egui_demo_windows: Default::default(),
-            color_test: Default::default(),
+            // egui_demo_windows: Default::default(),
+            // color_test: Default::default(),
             pixels_per_point: ctx.dpi_scale(),
         }
     }
@@ -33,7 +33,7 @@ impl mq::EventHandler for Stage {
         // Run the UI code:
         self.egui_mq.run(mq_ctx, |_mq_ctx, egui_ctx| {
             if self.show_egui_demo_windows {
-                self.egui_demo_windows.ui(egui_ctx);
+                // self.egui_demo_windows.ui(egui_ctx);
             }
 
             egui::Window::new("egui ❤ miniquad").show(egui_ctx, |ui| {
@@ -75,7 +75,7 @@ impl mq::EventHandler for Stage {
                 egui::ScrollArea::both()
                     .auto_shrink([false; 2])
                     .show(ui, |ui| {
-                        self.color_test.ui(ui);
+                        // self.color_test.ui(ui);
                     });
             });
         });
@@ -144,11 +144,11 @@ impl mq::EventHandler for Stage {
 }
 
 fn main() {
-    #[cfg(not(target_arch = "wasm32"))]
-    {
-        // Log to stdout (if you run with `RUST_LOG=debug`).
-        tracing_subscriber::fmt::init();
-    }
+    // #[cfg(not(target_arch = "wasm32"))]
+    // {
+    //     // Log to stdout (if you run with `RUST_LOG=debug`).
+    //     tracing_subscriber::fmt::init();
+    // }
 
     let conf = mq::conf::Conf {
         high_dpi: true,
