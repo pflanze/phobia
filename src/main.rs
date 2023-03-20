@@ -79,7 +79,7 @@ impl mq::EventHandler for Stage {
                     });
             });
         };
-        self.egui_mq.run(mq_ctx, runner);
+        self.egui_mq.run(mq_ctx, &runner);
 
         // Draw things behind egui here
 
