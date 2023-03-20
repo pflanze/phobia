@@ -45,7 +45,8 @@ impl mq::EventHandler for Stage {
                     ui.label(format!("native: {:.2}", dpi_scale));
                     ui.label(format!("egui:   {:.2}", ui.ctx().pixels_per_point()));
                     ui.add(
-                        egui::Slider::new(&mut self.pixels_per_point, 0.75..=3.0).logarithmic(true),
+                        egui::Slider::new(&mut self.pixels_per_point, 0.75..=3.0)
+                            .logarithmic(true),
                     )
                     .on_hover_text("Physical pixels per logical point");
                     if ui.button("Reset").clicked() {
@@ -136,7 +137,8 @@ impl mq::EventHandler for Stage {
         self.egui_mq.key_down_event(ctx, keycode, keymods);
     }
 
-    fn key_up_event(&mut self, _ctx: &mut mq::Context, keycode: mq::KeyCode, keymods: mq::KeyMods) {
+    fn key_up_event(&mut self, _ctx: &mut mq::Context,
+                    keycode: mq::KeyCode, keymods: mq::KeyMods) {
         self.egui_mq.key_up_event(keycode, keymods);
     }
 }
