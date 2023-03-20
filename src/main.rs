@@ -31,7 +31,7 @@ impl mq::EventHandler for Stage {
         let dpi_scale = mq_ctx.dpi_scale();
 
         // Run the UI code:
-        self.egui_mq.run(mq_ctx, |_mq_ctx, egui_ctx| {
+        let runner = |_mq_ctx, egui_ctx| {
             if self.show_egui_demo_windows {
                 // self.egui_demo_windows.ui(egui_ctx);
             }
@@ -78,7 +78,8 @@ impl mq::EventHandler for Stage {
                         // self.color_test.ui(ui);
                     });
             });
-        });
+        };
+        self.egui_mq.run(mq_ctx, runner);
 
         // Draw things behind egui here
 
